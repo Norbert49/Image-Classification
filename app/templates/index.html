@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Classification</title>
+</head>
+<body>
+    <h1>Image Classification</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept=".jpg, .jpeg, .png" onchange="this.nextElementSibling.textContent = this.files.length ? this.files[0].name : 'No file chosen';">
+        <span>No file chosen</span>
+        <input type="submit" value="Classify">
+    </form>
+    {% if prediction %}
+        <h2>Predicted Class: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>

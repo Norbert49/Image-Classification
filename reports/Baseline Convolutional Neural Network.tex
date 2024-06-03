@@ -1,0 +1,81 @@
+Baseline Convolutional Neural Network Model Documentation (v1.0)
+Author: Norbert490
+
+Date: 2024-06-02
+
+Introduction
+
+This document describes a baseline Convolutional Neural Network (CNN) model for image classification that was developed for this project. This model serves as a foundation for further exploration and optimization.
+
+Model Architecture
+
+The architecture employed a standard approach for image classification tasks, utilizing convolutional layers for feature extraction, pooling layers for dimensionality reduction, dropout layers for regularization, and fully-connected layers for classification.
+
+Input Layer:
+
+Shape: (32, 32, 3) representing the height, width, and color channels (RGB) of the input images.
+Convolutional Blocks:
+
+The model comprised several convolutional blocks, each containing the following elements:
+Convolutional layer: Extracted features from the input using learnable filters.
+Batch Normalization: Normalized the activations of the previous layer, which facilitated faster convergence and improved stability.
+Activation function (ReLU): Introduced non-linearity for better feature learning.
+Max Pooling layer: Reduced the spatial dimensionality of the data, promoting translational invariance.
+Dropout layer: Randomly dropped a percentage of activations during training to prevent overfitting.
+Classification Head:
+
+Flatten layer: Transformed the multi-dimensional feature maps from convolutional layers into a 1D vector.
+Dense layer: Processed the flattened features for classification.
+Activation function (ReLU): Introduced non-linearity in the dense layer.
+Output layer:
+Units: Corresponded to the number of image classes (e.g., 10 for 10 classes).
+Activation function (Softmax): Generated probability distributions for multi-class classification.
+Training Process
+
+Data Loading and Preprocessing:
+
+The image dataset and corresponding labels were loaded.
+The images were preprocessed by normalizing pixel values (e.g., scaling to [0, 1]).
+Data Splitting:
+
+The preprocessed dataset was split into training and validation sets (e.g., 80/20 split).
+One-Hot Encoding:
+
+Categorical class labels were converted into a one-hot encoded format (binary matrix).
+Model Training:
+
+The model was trained using the training data with the following configuration:
+Epochs: Number of times the entire dataset was passed through the model for training (e.g., 10 epochs).
+Batch size: Number of samples processed before updating the model weights (e.g., 32).
+Optimizer: Adam optimizer with a learning rate (e.g., 1e-3).
+Loss function: Categorical cross-entropy was used to measure the difference between predicted and true labels (refer to the formula below).
+Metrics: Accuracy was tracked to monitor the model's classification performance.
+Loss Function (Categorical Cross-Entropy):
+
+Loss = -Σ (i=1 to N) y_i * log(y_hat_i)
+
+Where:
+
+i: Iterates over all samples (1 to N)
+y_i: Actual label for sample i
+y_hat_i: Predicted probability for class i
+Model Validation:
+The model's performance was evaluated on the validation set during training to monitor for overfitting and select the best performing model.
+Performance Evaluation
+
+The model's performance was assessed using metrics like accuracy and loss on the training, validation, and a separate test set.
+
+Training and Validation Performance:
+
+Indicated how well the model learned the training data.
+Reflected the model's ability to generalize to unseen data during training.
+Test Performance:
+
+Assessed the model's final performance on a separate test dataset.
+Results
+
+The model achieved a test accuracy of 76.71% on the unseen test dataset, indicating a reasonable ability to classify the images. The test loss was 0.6832. It's important to note that these results can be further improved through hyperparameter tuning, architecture modifications, and data augmentation techniques.
+
+Conclusion
+
+This documentation serves as a reference point for understanding and utilizing the baseline CNN model for image classification
