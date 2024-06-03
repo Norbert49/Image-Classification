@@ -7,7 +7,7 @@ import numpy as np
 import os
 import io
 
-# Define the path to the model
+# model path
 model_path = os.path.join(os.path.dirname(__file__), '..', 'models', 'transfer_learning_model.h5')
 
 # Loading the pre-trained model
